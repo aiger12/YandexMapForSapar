@@ -30,7 +30,7 @@ fun PanoramaMap(
     val mapKit = remember { MapKitFactory.getInstance() }
 
     val panoramaService = PlacesFactory.getInstance().createPanoramaService()
-    val searchSession = panoramaService.findNearest(
+    panoramaService.findNearest(
         Point(55.733330, 37.587649),
         object: PanoramaService.SearchListener {
             override fun onPanoramaSearchResult(panoramaId: String) {

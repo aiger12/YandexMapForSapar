@@ -3,6 +3,7 @@ package com.example.yandexmap
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -13,6 +14,7 @@ import com.example.yandexmap.ui.screens.PanoramaMapsScreen
 import com.example.yandexmap.ui.theme.YandexMapTheme
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
+@ExperimentalMaterialApi
 @ExperimentalPermissionsApi
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
