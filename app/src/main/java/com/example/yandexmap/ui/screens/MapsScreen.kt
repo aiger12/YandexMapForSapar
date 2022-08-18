@@ -22,6 +22,7 @@ import com.example.yandexmap.R
 import com.example.yandexmap.ui.view.rememberCameraPosition
 import com.example.yandexmap.utils.getUserLocation
 import com.google.accompanist.permissions.rememberPermissionState
+import kotlinx.coroutines.delay
 
 @ExperimentalMaterialApi
 @ExperimentalPermissionsApi
@@ -47,16 +48,24 @@ fun MapsScreen() {
         }
     }
 
+    LaunchedEffect(key1 = Unit, block = {
+        delay(10000)
+        val userPoint = getUserLocation(context)
+        cameraPosition = rememberCameraPosition(
+            longitude = userPoint?.longitude ?: 0.0,
+            latitude = userPoint?.latitude ?: 0.0,
+            zoom = 14f
+        )
+    })
+
     Box {
         YandexMap(
             modifier = Modifier.fillMaxSize(),
             cameraPosition = cameraPosition,
-            userLocation = userLocation,
+            userLocation = false,
             search = search,
             onCameraPosition = { newCameraPosition ->
-                if(!userLocation){
-                    cameraPosition = newCameraPosition
-                }
+                cameraPosition = newCameraPosition
             }
         )
         Column {
@@ -125,7 +134,7 @@ private fun MapButton(
 ){
     Card(
         modifier = Modifier.padding(5.dp),
-        shape = AbsoluteRoundedCornerShape(90.dp),
+        shape = AbsoluteRoundedCornerShape(20.dp),
         backgroundColor = tintColor,
         onClick = onClick
     ) {
