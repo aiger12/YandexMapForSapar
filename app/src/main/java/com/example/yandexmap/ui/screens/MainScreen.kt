@@ -1,12 +1,10 @@
 package com.example.yandexmap.ui.screens
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -17,8 +15,7 @@ fun MainScreen(
     navController: NavController
 ) {
     LazyColumn(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+      Modifier.padding(10.dp, 10.dp, 0.dp, 0.dp)
     ) {
         item {
             OutlinedButton(

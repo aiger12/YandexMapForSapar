@@ -7,9 +7,7 @@ class YandexMapApp:Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val mapKey = BuildConfig.YANDEX_MAP_KIT_KEY
-
-        MapKitFactory.setApiKey(mapKey)
+        MapKitFactory.setApiKey("e7534c10-cf8d-44a3-be67-3399d2210add")
         MapKitFactory.initialize(this)
     }
 }

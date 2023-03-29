@@ -42,8 +42,8 @@ import kotlin.math.sqrt
 
 fun rememberCameraPosition(
     cameraPosition: CameraPosition? = null,
-    latitude: Double = cameraPosition?.target?.latitude ?: 0.0,
-    longitude: Double = cameraPosition?.target?.longitude ?: 0.0,
+    latitude: Double = 43.241556,
+    longitude: Double = 76.90883,
     zoom: Float = cameraPosition?.zoom ?: 0f,
     azimuth: Float = cameraPosition?.azimuth ?: 0f,
     tilt: Float = cameraPosition?.tilt ?: 0f,
@@ -61,12 +61,14 @@ fun rememberCameraPosition(
     )
 }
 
+data class MyLocation( val endRoute: Point = Point(41.275548, 69.204386))
+
 @ExperimentalPermissionsApi
 @Composable
 fun YandexMap(
     modifier: Modifier = Modifier,
     cameraPosition: CameraPosition = rememberCameraPosition(),
-    userLocation: Boolean = false,
+    userLocation: Boolean = true,
     search: String? = null,
     onCameraPosition: (CameraPosition) -> Unit = {},
 ) {

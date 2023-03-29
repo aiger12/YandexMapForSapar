@@ -30,7 +30,7 @@ import kotlinx.coroutines.delay
 fun MapsScreen() {
     val context = LocalContext.current
 
-    var userLocation by rememberSaveable { mutableStateOf(false) }
+    var userLocation by rememberSaveable { mutableStateOf(true) }
     var cameraPosition = rememberCameraPosition()
 
     val locationPermission = rememberPermissionState(permission = Manifest.permission.ACCESS_FINE_LOCATION)
@@ -62,7 +62,7 @@ fun MapsScreen() {
         YandexMap(
             modifier = Modifier.fillMaxSize(),
             cameraPosition = cameraPosition,
-            userLocation = false,
+            userLocation = true,
             search = search,
             onCameraPosition = { newCameraPosition ->
                 cameraPosition = newCameraPosition
@@ -101,7 +101,7 @@ fun MapsScreen() {
                 ) {
                     cameraPosition = rememberCameraPosition(
                         cameraPosition = cameraPosition,
-                        zoom = cameraPosition.zoom + 1f
+                        zoom = cameraPosition.zoom + 5f
                     )
                 }
 
@@ -110,7 +110,7 @@ fun MapsScreen() {
                 ) {
                     cameraPosition = rememberCameraPosition(
                         cameraPosition = cameraPosition,
-                        zoom = cameraPosition.zoom - 1f
+                        zoom = cameraPosition.zoom - 5f
                     )
                 }
 
